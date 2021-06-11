@@ -16,7 +16,7 @@ class Booking{
     }
 
     public function getDateBooking(){
-        return $this->booking_date;
+        return $this->_dateBooking;
     }
 
     public function setDateBooking($dateBooking){
@@ -24,11 +24,39 @@ class Booking{
     }
 
     public function getHourBooking(){
-        return $this->$booking_hour;
+        return $this->_hourBooking;
     }
     
     public function setHourBooking($hourBooking){
         $this->_booking_hour = $_hourBooking;
+    }
+
+    
+
+    //reserver un resto
+    public function addBooking($dsn, $user, $pw){
+        
+        // se connecte
+        try{
+            $dbh = new PDO($dsn, $user, $pw);
+           
+        }
+        catch(PDOException $e){
+            $e->getMessage();
+
+        }
+        //la requete 
+        $requete = "INSERT INTO Reservation (dateBooking, hourBooking, id_client, id_resto) VALUES (:dateBooking, :hourBooking, :id_client, :id_resto);";
+        //on prepare la requete 
+        $maRequet = $db->prepare($requete);
+        //relie les variable avec les element en attente pour la requete
+        $maRequet->bindParam(':dateBooking', $this->getdateBooking());
+        $maRequet->bindParam(':hourBooking', $this->gethourBooking());
+        $maRequet->bindParam(':id_client', $this->client->id_client);
+        $maRequet->bindParam(':id_resto', $this->resto->id_resto);
+        //excute la requete
+        $maRequet->execute();
+
     }
 
     // retourne le nombre de reservation par client
@@ -50,33 +78,6 @@ class Booking{
         $total= $donnees['Nbrbook'];
 
         return $total;
-    }
-
-
-    //reserver un resto
-    public function addBooking($dsn, $user, $pw){
-        
-        // se connecte
-        try{
-            $dbh = new PDO($dsn, $user, $pw);
-           
-        }
-        catch(PDOException $e){
-            $e->getMessage();
-
-        }
-        //la requete 
-        $requete = "INSERT INTO Booking (date_res, heure_res, id_client, id_resto) VALUES (:date_res, :heure_res, :id_client, :id_resto);";
-        //on prepare la requete 
-        $maRequet = $db->prepare($requete);
-        //relie les variable avec les element en attente pour la requete
-        $maRequet->bindParam(':date_res', $this->getBooking_date());
-        $maRequet->bindParam(':heure_res', $this->getBooking_hour());
-        $maRequet->bindParam(':id_client', $this->client->id_client);
-        $maRequet->bindParam(':id_resto', $this->resto->id_resto);
-        //excute la requete
-        $maRequet->execute();
-        DAO::disconnect;
     }
 
 
