@@ -61,18 +61,23 @@ class Resto{
         }catch(PDOException $e){
             echo 'cheh';
         }
-        
+        echo "avant prepare";
 
-        $sth= $dbh->prepare("INSERT INTO `Resto`(`name`, `address`, `type`, `picture`, `description`) 
-        VALUES(:name, :address, :type, :picture, :description);");
-
+        $sth= $dbh->prepare("INSERT INTO Resto (name, address, type, picture, description) VALUES(:name, :address, :type, :picture, :description);");
+        echo "avant bind";
         $sth->bindParam(':name', $this->getName());
         $sth->bindParam(':address', $this->getAddress());
         $sth->bindParam(':type', $this->getType());
         $sth->bindParam(':picture', $this->getPicture());
         $sth->bindParam(':description', $this->getDescription());
-
-        $sth->execute();
+        
+        echo $this->getName(); 
+        echo $this->getAddress();
+        echo $this->getPicture(); 
+        echo $this->getDescription();
+        
+        $sth->execute(); 
+        echo "avant header";
         header("Location: listResto.php");
 
     }

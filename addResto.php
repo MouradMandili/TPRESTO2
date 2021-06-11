@@ -15,7 +15,7 @@ require_once 'header.inc.php';
   </div>
   <div class="mb-3">
     <label for="formFile" class="form-label">Default file input example</label>
-    <input class="form-control" type="file" id="formFile" name="picture">
+    <input class="form-control" type="file" id="formFile" name="picture2">
   </div>
   <div class="col-md-3">
     <label for="validationDefault04" class="form-label">Type</label>
