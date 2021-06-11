@@ -11,7 +11,6 @@ if(isset($_POST['submit'])){
     $description = $_POST['description'];
     
     if (isset($_FILES['picture2']) && $_FILES['picture2']['error'] == 0) {
-        echo "c'est bon";
 
         $target_dir = './uploads/';
     
@@ -21,11 +20,11 @@ if(isset($_POST['submit'])){
         $extensionImage = strtolower($informationsImage['extension']);
         
         $target_file = $target_dir .  $name . "." .$extensionImage;
-        echo $target_file;
+        // echo $target_file;
         
 
         if (move_uploaded_file($_FILES['picture2']['tmp_name'], $target_file)) {
-            echo "The file ". basename( $_FILES["picture2"]["name"]). " has been uploaded.";
+            // echo "The file ". basename( $_FILES["picture2"]["name"]). " has been uploaded.";
             $resto = new Resto();
 
             $resto->setName($name);
@@ -33,8 +32,6 @@ if(isset($_POST['submit'])){
             $resto->setType($type);
             $resto->setDescription($description);
             $resto->setPicture($target_file );
-
-            echo $resto->getName();
 
             $resto->envoisDonnees($dsn, $user, $password);
             header("Location: listResto.php");

@@ -43,8 +43,8 @@ class Booking{
         }
         catch(PDOException $e){
             $e->getMessage();
-
         }
+        
         //la requete 
         $requete = "INSERT INTO Reservation (dateBooking, hourBooking, id_client, id_resto) VALUES (:dateBooking, :hourBooking, :id_client, :id_resto);";
         //on prepare la requete 
@@ -52,8 +52,8 @@ class Booking{
         //relie les variable avec les element en attente pour la requete
         $maRequet->bindParam(':dateBooking', $this->getdateBooking());
         $maRequet->bindParam(':hourBooking', $this->gethourBooking());
-        $maRequet->bindParam(':id_client', $this->client->id_client);
-        $maRequet->bindParam(':id_resto', $this->resto->id_resto);
+        $maRequet->bindParam(':id_client', );
+        $maRequet->bindParam(':id_resto', );
         //excute la requete
         $maRequet->execute();
         header("Location: profil.php");
