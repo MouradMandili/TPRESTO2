@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
     $book1->setRes_hour($resHour);
             
 
-    $book1->addBooking($dsn, $user, $password);
+    $book1->addBooking($dsn, $user, $pw);
     header("Location: profil.php");
 
         

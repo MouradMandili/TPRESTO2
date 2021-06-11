@@ -15,27 +15,35 @@ class Booking{
         $this->_idBooking = $_idBooking;
     }
 
-    public function getBooking_date(){
+    public function getDateBooking(){
         return $this->booking_date;
     }
 
-    public function setBooking_date($dateBooking){
+    public function setDateBooking($dateBooking){
         $this->_booking_date = $_booking_date;
     }
 
-    public function getBooking_hour(){
+    public function getHourBooking(){
         return $this->$booking_hour;
     }
     
-    public function setBooking_hour($hourBooking){
+    public function setHourBooking($hourBooking){
         $this->_booking_hour = $_hourBooking;
     }
 
     // retourne le nombre de reservation par client
-    public function countBooking($client){
-        require_once 'DAO.php';
+    public function countBooking($dsn, $user, $pw){
+        
+        // se connecte
+        try{
+            $dbh = new PDO($dsn, $user, $pw);
+           
+        }
+        catch(PDOException $e){
+            $e->getMessage();
 
-        $db = DAO::connect();
+        }
+
         $req = $bdd->query("SELECT  COUNT($client) as Nbrbook FROM Booking" );
         $donnees = $req->fetch();
         $req->closeCursor();
