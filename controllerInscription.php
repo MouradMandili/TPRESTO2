@@ -3,7 +3,7 @@ require_once "User.php";
 require_once "DAO.php";
 
 if(isset($_POST['submit'])){
-    echo 'test1';
+
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
         $extensionImage = strtolower($informationsImage['extension']);
         
         $target_file = $target_dir .  $lastname . "." .$extensionImage;
-        echo $target_file;
+        // echo $target_file;
         
 
         if (move_uploaded_file($_FILES['picture']['tmp_name'], $target_file)) {

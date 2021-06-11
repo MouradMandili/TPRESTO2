@@ -10,9 +10,9 @@ class Resto{
     private $_description;
 
     
-    // public function __construct(){
+    public function __construct(){
 
-    // }
+    }
 
     public function setName($name){
         $this->_name= $name;
@@ -26,7 +26,7 @@ class Resto{
         $this->_address= $address;
     }
 
-    public function getAdress(){
+    public function getAddress(){
         return $this->_address;
     }
     public function setPicture($picture){
@@ -55,22 +55,26 @@ class Resto{
     
 
     public function envoisDonnees($dsn,$user,$password){
-
+       
         try{
             $dbh = new PDO($dsn,$user,$password);
         }catch(PDOException $e){
             echo 'cheh';
         }
+        
+
         $sth= $dbh->prepare("INSERT INTO `Resto`(`name`, `address`, `type`, `picture`, `description`) 
         VALUES(:name, :address, :type, :picture, :description);");
 
         $sth->bindParam(':name', $this->getName());
-        $sth->bindParam(':address', $this->getAdress());
+        $sth->bindParam(':address', $this->getAddress());
         $sth->bindParam(':type', $this->getType());
         $sth->bindParam(':picture', $this->getPicture());
         $sth->bindParam(':description', $this->getDescription());
 
         $sth->execute();
+        header("Location: listResto.php");
+
     }
 
     public function recupDonnees($dsn,$user,$password){

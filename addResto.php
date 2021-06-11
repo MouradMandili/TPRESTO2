@@ -4,7 +4,7 @@ require_once 'header.inc.php';
 ?>
 
 <div class="container">
-<form class="row g-3" method="POST" action="controller.php">
+<form class="row g-3" method="POST" action="controller.php" enctype="multipart/form-data">
   <div class="col-md-4">
     <label for="validationDefault01" class="form-label">Name</label>
     <input type="text" class="form-control" id="validationDefault01"  name="name" required>
@@ -15,7 +15,7 @@ require_once 'header.inc.php';
   </div>
   <div class="mb-3">
     <label for="formFile" class="form-label">Default file input example</label>
-    <input class="form-control" type="file" id="formFile">
+    <input class="form-control" type="file" id="formFile" name="picture">
   </div>
   <div class="col-md-3">
     <label for="validationDefault04" class="form-label">Type</label>
