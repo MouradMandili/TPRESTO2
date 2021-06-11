@@ -10,9 +10,9 @@ class Resto{
     private $_description;
 
     
-    public function __construct(){
+    // public function __construct(){
 
-    }
+    // }
 
     public function setName($name){
         $this->_name= $name;

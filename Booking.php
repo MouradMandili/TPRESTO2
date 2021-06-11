@@ -35,7 +35,7 @@ class Booking{
 
     //reserver un resto
     public function addBooking($dsn, $user, $pw){
-        
+        echo "av try";
         // se connecte
         try{
             $dbh = new PDO($dsn, $user, $pw);
@@ -56,6 +56,7 @@ class Booking{
         $maRequet->bindParam(':id_resto', $this->resto->id_resto);
         //excute la requete
         $maRequet->execute();
+        header("Location: profil.php");
 
     }
 
