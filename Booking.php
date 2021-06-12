@@ -22,7 +22,7 @@ class Booking{
     }
 
     public function setDateBooking($dateBooking){
-        $this->__dateBooking = $dateBooking;
+        $this->_dateBooking = $dateBooking;
     }
 
     public function getHourBooking(){
@@ -30,7 +30,7 @@ class Booking{
     }
     
     public function setHourBooking($hourBooking){
-        $this->__hourBooking = $hourBooking;
+        $this->_hourBooking = $hourBooking;
     }
 
     public function getClient(){

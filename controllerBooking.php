@@ -17,12 +17,7 @@ if(isset($_POST['submit'])){
     $book1 = new Booking();
 
     $book1->setDateBooking($resDate);
-    $test=$book1->getDateBooking();
-    echo $test;
     $book1->setHourBooking($resHour);
-    $test2=$book1->getHourBooking();
-    echo $test2;
-    
     $book1->setClient($idClient);
     $book1->setRestaurant($idRestaurant);
 
