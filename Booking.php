@@ -75,6 +75,13 @@ class Booking{
         $maRequet->bindParam(':id_client', $this->getClient());
         $maRequet->bindParam(':id_resto', $this->getRestaurant());
         $maRequet->bindParam(':hourBooking', $this->gethourBooking());
+        
+        echo $this->getdateBooking();
+        echo $this->getClient();
+        echo $this->getRestaurant();
+        echo $this->gethourBooking();
+
+
         //excute la requete
         echo "av execut";
         $maRequet->execute();
