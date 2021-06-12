@@ -100,7 +100,7 @@ class User {
         
         $result = $sth->fetch();
         // echo $result;
-        echo var_dump($result);
+        // echo var_dump($result);
 
         }catch(PDOException $e){
             $e->getMessage();

@@ -1,7 +1,4 @@
-<?php
-
-require_once 'header.inc.php';
-?>
+<?php require_once 'headerAccueil.php' ?>
 
 <div class="container">
 <form class="row g-3" method="POST" action="controllerInscription.php" enctype="multipart/form-data"> 
