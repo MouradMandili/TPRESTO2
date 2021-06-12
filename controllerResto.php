@@ -11,10 +11,11 @@ $_SESSION['AllResto'] = $rest->recupDonnees($dsn,$user,$password);
 header("Location: listResto.php");
 }
 
-if(isset($_GET["deconne"])){
+if(isset($_GET["dec"])){
    
-    header("Location: index.php");
+header("Location: index.php");
 }
+
 
 
 ?>
