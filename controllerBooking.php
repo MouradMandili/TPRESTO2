@@ -2,6 +2,9 @@
 
 require_once "Booking.php";
 require_once "DAO.php";
+require_once "User.php"
+require_once "Resto.php"
+ 
 echo var_dump($_POST['submit']);
 if(isset($_POST['submit'])){
     echo "coucou";
