@@ -36,6 +36,8 @@
         <a class="nav-link active" aria-current="page" href="profil.php">Profil</a>
         <a class="nav-link" href="addBooking.php">Reservation</a>
         <a class="nav-link" href="addResto.php">Ajout Resto</a>
+        <a class="nav-link" href="addResto.php?liste">liste des Restos</a>
+
         <!-- <input  type="submit" class="nav-link" value="Déconnexion"> -->
       </div>
     </div>
