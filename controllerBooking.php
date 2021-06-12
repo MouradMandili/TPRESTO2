@@ -6,20 +6,17 @@ $_SESSION['obj_user'];
 $_SESSION['idResto'];
 
 
-$idClient = $_SESSION['obj_user']['id'];
-echo $idClient;
-$idRestaurant = $_SESSION['idResto'];
-echo $idRestaurant;
+
 
 
 
 if(isset($_POST['submit'])){
     echo "coucou";
-    $resDate = $_POST['res_date'];
+    $resDate = date('Y-m-d', strtotime($_POST['res_date']));
     $resHour = $_POST['res_heure'];
     
-    $idClient = $_SESSION['obj_user']['id'];
-    $idRestaurant = $_GET['id'];
+    $idClient = intval($_SESSION['obj_user']['id']);
+    $idRestaurant = intval($_GET['id']);
 
     $book1 = new Booking;
 

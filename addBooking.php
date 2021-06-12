@@ -1,7 +1,6 @@
 <?php 
     session_start();
     $_SESSION['idResto']=$_GET['id'];
-    echo $_SESSION['idResto'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +28,7 @@
                 </div>
 
                 <div class="col-12 justify-content-center">
-                    <button class="btn btn-success" type="submit">Réserver</button>
+                    <button class="btn btn-success" type="submit" name="submit">Réserver</button>
                 </div>
 
                 <div class="col-12 justify-content-center">

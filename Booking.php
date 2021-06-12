@@ -61,43 +61,48 @@ class Booking{
         }
         catch(PDOException $e){
             $e->getMessage();
+            echo "catch";
         }
-        
+        echo "av reqet";
         //la requete 
-        $requete = "INSERT INTO Reservation (dateBooking, hourBooking, id_client, id_resto) VALUES (:dateBooking, :hourBooking, :id_client, :id_resto);";
+        $requete = "INSERT INTO Reservation (dateBooking, id_client, id_resto, hourBooking) VALUES (:dateBooking, :id_client, :id_resto, :hourBooking);";
         //on prepare la requete 
-        $maRequet = $db->prepare($requete);
+        echo "av prapar";
+        $maRequet = $dbh->prepare($requete);
         //relie les variable avec les element en attente pour la requete
+        echo "av bind";
         $maRequet->bindParam(':dateBooking', $this->getdateBooking());
-        $maRequet->bindParam(':hourBooking', $this->gethourBooking());
         $maRequet->bindParam(':id_client', $this->getClient());
         $maRequet->bindParam(':id_resto', $this->getRestaurant());
+        $maRequet->bindParam(':hourBooking', $this->gethourBooking());
         //excute la requete
+        echo "av execut";
         $maRequet->execute();
+        echo "av loc";
         header("Location: profil.php");
 
     }
 
     // retourne le nombre de reservation par client
-    public function countBooking($dsn, $user, $pw){
+    // public function countBooking($dsn, $user, $pw){
         
-        // se connecte
-        try{
-            $dbh = new PDO($dsn, $user, $pw);
+    //     // se connecte
+    //     try{
+    //         $dbh = new PDO($dsn, $user, $pw);
            
-        }
-        catch(PDOException $e){
-            $e->getMessage();
+    //     }
+    //     catch(PDOException $e){
+    //         $e->getMessage();
 
-        }
+    //     }
 
-        $req = $bdd->query("SELECT  COUNT($client) as Nbrbook FROM Booking" );
-        $donnees = $req->fetch();
-        $req->closeCursor();
-        $total= $donnees['Nbrbook'];
+    //     $req = $bdd->query("SELECT  COUNT($client) as Nbrbook FROM Booking" );
+    //     $donnees = $req->fetch();
+    //     $req->closeCursor();
+    //     $total= $donnees['Nbrbook'];
 
-        return $total;
-    }
+    //     return $total;
+    // }
 
 
 }
