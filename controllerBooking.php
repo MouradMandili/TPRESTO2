@@ -1,21 +1,23 @@
 <?php
-
+session_start();
 require_once "Booking.php";
 require_once "DAO.php";
-require_once "User.php"
-require_once "Resto.php"
-
-echo var_dump($_POST['submit']);
+$_SESSION['obj_user'];
+var_dump($_POST['submit']);
 if(isset($_POST['submit'])){
     echo "coucou";
     $resDate = $_POST['res_date'];
     $resHour = $_POST['res_heure'];
-    echo $resDate; 
-    echo $resHour;
+    
+    $idClient = $_SESSION['obj_user']['id'];
+    $idRestaurant = $_GET['obj_resto']['id'];
+
     $book1 = new Booking;
 
     $book1->setDateBooking($resDate);
     $book1->setHourBooking($resHour);
+    $book1->setClient($idClient);
+    $book1->setRestaurant($idRestaurant);
     
 
     $book1->addBooking($dsn, $user, $pw);

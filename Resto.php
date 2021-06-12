@@ -76,7 +76,7 @@ class Resto{
         
         $sth->execute(); 
         
-        header("Location: listResto.php");
+        // header("Location: listResto.php");
 
     }
 
