@@ -21,7 +21,7 @@ session_start();
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a class="btn btn-sm btn-outline-secondary" href="addBooking.php?id=<?= $resto["id"]?>" >Reserve</a>
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>

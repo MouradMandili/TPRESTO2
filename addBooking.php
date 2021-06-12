@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    $_SESSION['idResto']=$_GET['id'];
+    echo $_SESSION['idResto'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
