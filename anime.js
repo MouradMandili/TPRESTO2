@@ -2,7 +2,7 @@ $(function(){
 
     const $views = [...document.querySelectorAll(".view")];
     const $affiches = [...document.querySelectorAll(".affiche")];
-    // const $cancel = document.getElementById("retour");
+    const $cancel = [...document.querySelectorAll(".retour")];
 
         for(i=0; i<$views.length;i++){
                 $views[i].classList.add("active");
@@ -19,5 +19,16 @@ $(function(){
             $views[$affiches.indexOf(element)].classList.remove("active");
         
         }))
+
+        $cancel.forEach(element => element.addEventListener('click', (e)=>{
+            
+            for(i=0; i<$views.length;i++){
+                $views[i].classList.add("active");
+            }        
+            
+            // $views[$cancel.indexOf(element)].classList.add("active");
+                    // console.log($views[$cancel.indexOf(element)]);
+            
+        }));
 
 });

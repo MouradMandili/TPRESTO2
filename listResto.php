@@ -10,7 +10,7 @@ session_start();
   <div class="album py-5 bg-light">
     <div class="container">
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 parent">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
       <?php foreach ($restos  as $resto ): ?>
         <div class="col">
@@ -28,18 +28,18 @@ session_start();
                 <small class="text-muted">9 min</small>
               </div>
             </div>
+          </div>        
 
-            <div class="col view">
+          <div class="col view">
             <div class="card shadow-sm">
               <div class="card-body">
                 <h1><?= $resto["type"]?></h1>
                 <p class="card-text"><?= $resto["description"]?></p>
+                <button type="button" class="btn btn-sm btn-danger retour">Fermer</button>
               </div>
             </div>
           </div>
 
-          </div>        
-       
         <?php endforeach; ?>
       </div>
     </div>
