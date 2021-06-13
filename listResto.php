@@ -3,6 +3,7 @@ session_start();
  require_once 'header.inc.php';
  require_once 'controllerResto.php';
  $restos = $_SESSION['AllResto'];
+ 
 ?>
 
 <main>
@@ -17,13 +18,28 @@ session_start();
             <img class="bd-placeholder-img card-img-top" src="<?= $resto["picture"]?>" alt="">
             <div class="card-body">
                 <h1><?= $resto["name"]?></h1>
+              <p class="card-text"><?= $resto["address"]?></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-primary">View</button>
+                  <a class="btn btn-sm btn-success" href="addBooking.php?id=<?= $resto["id"]?>" >Reserve</a>
+                </div>
+                <small class="text-muted">9 min</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col view">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h1><?= $resto["type"]?></h1>
               <p class="card-text"><?= $resto["description"]?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <a class="btn btn-sm btn-outline-secondary" href="addBooking.php?id=<?= $resto["id"]?>" >Reserve</a>
+                  <button type="button" class="btn btn-sm btn-primary">Retour</button>
+                  <a class="btn btn-sm btn-success" href="addBooking.php?id=<?= $resto["id"]?>" >Reserve</a>
                 </div>
-                <small class="text-muted">9 mins</small>
               </div>
             </div>
           </div>

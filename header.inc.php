@@ -10,9 +10,12 @@
 
     <style>
       body{
-            background-image: url("uploads/bg.jpg") !important;
+          background: url("uploads/bg.jpg") !important;
       } 
       
+      .view{
+          display: none;
+      }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;

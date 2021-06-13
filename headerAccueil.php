@@ -8,6 +8,11 @@
     <title>Accueil</title>
 
     <style>
+
+      body{
+            background-image: url("uploads/bg.jpg") !important;
+      } 
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
