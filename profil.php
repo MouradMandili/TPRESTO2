@@ -9,6 +9,7 @@ $users = $_SESSION['obj_user'];
 
 $booking1 = new Booking();
 
+
 $bookis=$booking1->recupBooking($dsn,$user,$password);
 
 // var_dump($bookis[0]);
