@@ -14,7 +14,11 @@
           background: url("uploads/bg.jpg") !important;
       } 
       
-      .active{
+      /* .view{
+        display: none;
+      } */
+    
+      .view.active{
         display: none;
       }
 
@@ -48,7 +52,6 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="profil.php">Profil</a>
-        <a class="nav-link" href="addBooking.php">Reservation</a>
         <a class="nav-link" href="addResto.php">Ajout Resto</a>
         <a class="nav-link" href="listResto.php?liste">liste des Restos</a>
         <a class="nav-link" href="listResto.php?dec">déconnexion</a>

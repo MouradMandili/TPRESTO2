@@ -28,9 +28,8 @@ session_start();
                 <small class="text-muted">9 min</small>
               </div>
             </div>
-          </div>
 
-          <div class="col view">
+            <div class="col view">
             <div class="card shadow-sm">
               <div class="card-body">
                 <h1><?= $resto["type"]?></h1>
@@ -39,8 +38,7 @@ session_start();
             </div>
           </div>
 
-          
-
+          </div>        
        
         <?php endforeach; ?>
       </div>
