@@ -39,7 +39,10 @@
         <a class="nav-link" href="addResto.php">Ajout Resto</a>
         <a class="nav-link" href="listResto.php?liste">liste des Restos</a>
         <a class="nav-link" href="listResto.php?dec">déconnexion</a>
-
+        <?php
+            setcookie('ip',$_SERVER['REMOTE_ADDR'],time() + 60*60*24*7)
+            echo 'L adresse IP de l utilisateur est : '.$_SERVER['REMOTE_ADDR'];
+        ?>
         <!-- <input  type="submit" class="nav-link" value="Déconnexion"> -->
       </div>
     </div>
