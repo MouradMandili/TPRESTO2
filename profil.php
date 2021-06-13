@@ -45,18 +45,30 @@ $bookis=$booking1->recupBooking($dsn,$user,$password);
                     <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
                 </div> -->
                 <!-- Reservations -->
-                <h5>Récapitulatif de vos réservations</h5>
+                <h5>Récapitulatif de vos réservations :</h5>
                 <div class="row">
-                    <div class="col-lg-6 mb-2 pr-lg-1">
-                        <?php foreach ($bookis  as $booki ): ?>
-                            
+                    <div class="col-lg-12 mb-2 pr-lg-1">
+                    <table class="table table-striped table-bordered">
+                        <thead>
                             <tr>
-                                <td><?= $booki["name"]?></td>
-                                <td><?= date('d-m-Y', strtotime($booki["dateBooking"]))?></td>
-                                <td><?= substr($booki["hourBooking"],0,5)?></td>
+                                <th>Restaurant</th>
+                                <th>date</th>
+                                <th>heure</th>
                             </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($bookis  as $booki ): ?>
+                                
+                                <tr>
+                                    <td><?= $booki["name"]?></td>
+                                    <td><?= date('d-m-Y', strtotime($booki["dateBooking"]))?></td>
+                                    <td><?= substr($booki["hourBooking"],0,5)?></td>
+                                </tr>
 
-                        <?php endforeach; ?>  
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                          
                     </div>
                    
                 </div>
