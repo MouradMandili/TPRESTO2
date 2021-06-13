@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['obj_user'];
 
 class Booking{
 
@@ -80,17 +82,19 @@ class Booking{
 
     }
 
-    public function recupDonnees($dsn,$user,$password){
+    public function recupBooking($dsn,$user,$password){
 
         try{
             $dbh= new PDO($dsn,$user,$password);
-    
-        $sth = $dbh->prepare("SELECT user.firstname, Resto.name, Reservation.dateBooking, Reservation.hourBooking  FROM (user INNER JOIN Reservation ON (user.id = Reservation.id_client)) INNER JOIN REST ON (Reservation.id_resto = Resto.id) WHERE user.id = '$this->getClient()' ;");
+
+            $idCli = intval($_SESSION['obj_user']['id']);
         
-        $sth->execute();
-        $count = $sth->rowCount();
+            $sth = $dbh->prepare("SELECT user.firstname, Resto.name, Reservation.dateBooking, Reservation.hourBooking  FROM (user INNER JOIN Reservation ON (user.id = Reservation.id_client)) INNER JOIN Resto ON (Reservation.id_resto = Resto.id) WHERE user.id = $idCli ;");
+        
+            $sth->execute();
+            $count = $sth->rowCount();
          
-        $result = $sth->fetchAll();
+            $result = $sth->fetchAll();
     
         // echo var_dump($result);
         }catch(PDOException $e){

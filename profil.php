@@ -1,12 +1,17 @@
 <?php
 require_once 'controllerLogin.php';
 require_once 'header.inc.php';
-
+require_once 'Booking.php';
+require_once 'DAO.php';
 
 
 $users = $_SESSION['obj_user'];
 
-echo var_dump($users);
+$booking1 = new Booking();
+
+$bookis=$booking1->recupBooking($dsn,$user,$password);
+
+// var_dump($bookis[0]);
 
 //echo $users["firstname"];
 
@@ -36,7 +41,17 @@ echo var_dump($users);
                 </div>
                 <!-- Reservations -->
                 <div class="row">
-                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 mb-2 pr-lg-1">
+                        <?php foreach ($bookis  as $booki ): ?>
+                            
+                            <tr>
+                                <td><?= $booki["name"]?></td>
+                                <td><?= date('d-m-Y', strtotime($booki["dateBooking"]))?></td>
+                                <td><?= substr($booki["hourBooking"],0,5)?></td>
+                            </tr>
+
+                        <?php endforeach; ?>  
+                    </div>
                    
                 </div>
             </div>
