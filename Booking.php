@@ -53,7 +53,7 @@ class Booking{
 
     //reserver un resto
     public function addBooking($dsn, $user, $pw){
-        echo "av try";
+
         // se connecte
         try{
             $dbh = new PDO($dsn, $user, $pw);
@@ -61,35 +61,52 @@ class Booking{
         }
         catch(PDOException $e){
             $e->getMessage();
-            echo "catch";
         }
-        echo "av reqet";
+
         //la requete 
         $requete = "INSERT INTO Reservation (dateBooking, id_client, id_resto, hourBooking) VALUES (:dateBooking, :id_client, :id_resto, :hourBooking);";
         //on prepare la requete 
-        echo "av prapar";
         $maRequet = $dbh->prepare($requete);
         //relie les variable avec les element en attente pour la requete
-        echo "av bind";
         $maRequet->bindParam(':dateBooking', $this->getdateBooking());
         $maRequet->bindParam(':id_client', $this->getClient());
         $maRequet->bindParam(':id_resto', $this->getRestaurant());
         $maRequet->bindParam(':hourBooking', $this->gethourBooking());
-        
-        echo $this->getdateBooking();
-        echo $this->getClient();
-        echo $this->getRestaurant();
-        echo $this->gethourBooking();
-
 
         //excute la requete
-        echo "av execut";
         $maRequet->execute();
-        echo "av loc";
+       
         header("Location: profil.php");
 
     }
 
+    public function recupDonnees($dsn,$user,$password){
+
+        try{
+            $dbh= new PDO($dsn,$user,$password);
+    
+        $sth = $dbh->prepare("SELECT user.firstname, Resto.name, Reservation.dateBooking, Reservation.hourBooking  FROM (user INNER JOIN Reservation ON (user.id = Reservation.id_client)) INNER JOIN REST ON (Reservation.id_resto = Resto.id) WHERE user.id = '$this->getClient()' ;");
+        
+        $sth->execute();
+        $count = $sth->rowCount();
+         
+        $result = $sth->fetchAll();
+    
+        // echo var_dump($result);
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    
+        if($count > 0   && !empty($result)){
+            
+            return $result;
+            
+    
+        }else{
+            echo "compteur = 0 ";
+        }
+
+    }
     // retourne le nombre de reservation par client
     // public function countBooking($dsn, $user, $pw){
         
