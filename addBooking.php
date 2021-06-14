@@ -1,16 +1,8 @@
 <?php 
     session_start();
     $_SESSION['idResto']=$_GET['id'];
+    require_once 'header.inc.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 
 <div class="container-fluid d-flex justify-content-center" style="margin-top:200px">
         <div class="row d-flex justify-content-center">
@@ -38,6 +30,6 @@
             </div>
         </div>
     </div>
-    
+    <?= require_once 'header.inc.php';?>
 </body>
 </html>
